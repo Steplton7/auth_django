@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %} Главная {% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+    Вы вошли , хотите  <a  href="{% url 'users:logout' %}">выйти</a> ? 
+    {% else %} 
+    Вам надо <a  href="{% url 'users:login' %}">войти</a> ?
+    {% endif %} 
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %} Вход {% endblock %}
+{% block content %}
+{% if not request.user.is_authenticated  %}
+    Вы вышли!
+    Вам надо <a  href="{% url 'users:login' %}">войти</a> ?
+    {% endif %} 
+{% endblock %}
