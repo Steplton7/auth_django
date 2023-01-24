@@ -15,7 +15,6 @@ def index(request):
     return render(request, 'users/index.html')
 
 
-
 class SignUp(CreateView):
     form_class = CreationForm
     # После успешной регистрации перенаправляем пользователя на главную.

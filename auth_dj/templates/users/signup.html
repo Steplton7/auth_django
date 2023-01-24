@@ -3,11 +3,7 @@
 {% block content %}
 
     
-      
-        
-          
-          
-              {% if form.errors %}
+            {% if form.errors %}
                   {% for field in form %} 
                     {% for error in field.errors %}            
                       <div >
@@ -20,18 +16,18 @@
                       {{ error|escape }}
                     </div>
                   {% endfor %}
-              {% endif %}
+            {% endif %}
 
-              <form method="post" action="{% url 'users:signup' %}">
-              {% csrf_token %}
+            <form method="post" action="{% url 'users:signup' %}">
+                {% csrf_token %}
 
-              {# Выводим поля в цикле, по отдельности #}
-              {% for field in form %} 
+                {# Выводим поля в цикле, по отдельности #}
+                {% for field in form %} 
                 <div >
                   <label for="{{ field.id_for_label }}">
                     {{ field.label }}
                       {% if field.field.required %}
-                        <span >*</span>
+                        <span>*</span>
                       {% endif %}
                   </label>
                   {# К полю ввода добавляем атрибут class #}
@@ -45,13 +41,13 @@
                       </small>
                     {% endif %}
                 </div>
-              {% endfor %}
+                {% endfor %}
 
-              <div>
+                <div>
                 <button type="submit" >
                   Зарегистрироваться
                 </button>
-              </div>
+                </div>
 
             </form>
           
